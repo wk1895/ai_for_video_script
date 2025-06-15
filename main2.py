@@ -1,5 +1,5 @@
 import streamlit as st
-from utils1 import generate_script
+from utils2 import generate_script
 
 # sidebar
 with st.sidebar:
@@ -16,7 +16,7 @@ submit = st.button("生成脚本")
 # loading
 if submit:
     if not api_key:
-        st.info("请输入你的OpenAI API密钥")
+        st.info("请输入你的阿里云百炼 API密钥")
         st.stop()
     if not subject:
         st.info("请输入视频的主题")
@@ -27,7 +27,7 @@ if submit:
     else:
         with st.spinner("AI正在思考中，请稍等..."):
             search_result, title, script = generate_script(subject, video_length, creativity, api_key)
-        st.success("视频脚本已生成！")
+            st.success("视频脚本已生成！")
 
         st.divider()
 
